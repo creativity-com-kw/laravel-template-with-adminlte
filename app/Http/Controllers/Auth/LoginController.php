@@ -49,7 +49,7 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        Log::alert('User login successful.', ['id' => $user->id, 'name' => $user->name]);
+        Log::info('User login successful.', ['id' => $user->id, 'name' => $user->name]);
     }
 
     /**
@@ -60,6 +60,6 @@ class LoginController extends Controller
      */
     protected function loggedOut(Request $request)
     {
-        Log::alert('User logout successful.');
+        Log::info('User logout successful.');
     }
 }

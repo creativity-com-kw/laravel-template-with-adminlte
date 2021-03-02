@@ -21,3 +21,6 @@
         }
     });
 </script>
+
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('../vendor/almasaeed2010/adminlte/dist/js/demo.js') }}"></script>

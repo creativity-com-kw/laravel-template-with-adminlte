@@ -1,78 +1,111 @@
-@extends('layouts.master')
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('title')
-    Reset Password
-@endsection
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('body_class')
-    hold-transition login-page
-@endsection
+    <title>Reset Password</title>
 
-@section('content')
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="{{ route('password.request') }}"><b>Admin</b>LTE</a>
-        </div>
-        <!-- /.login-logo -->
-        <div class="card">
-            <div class="card-body login-card-body">
-                <p class="login-box-msg">You are only one step a way from your new password, reset your password now.</p>
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('../vendor/almasaeed2010/adminlte/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="{{ asset('../vendor/almasaeed2010/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{{ asset('../vendor/almasaeed2010/adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('../vendor/almasaeed2010/adminlte/dist/css/adminlte.min.css') }}">
+</head>
+<body class="hold-transition login-page">
 
-                <form method="POST" action="{{ route('password.update') }}">
-                    @csrf
-
-                    <input type="hidden" name="token" value="{{ $token }}">
-
-                    <div class="input-group mb-3">
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" autocomplete="email"
-                               placeholder="Email" autofocus>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
-
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                    <div class="input-group mb-3">
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password" placeholder="Password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-
-                        @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                    <div class="input-group mb-3">
-                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password" placeholder="Retype password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                </form>
-
-                <p class="mt-3 mb-1">
-                    <a href="{{ route('login') }}">Login</a>
-                </p>
-            </div>
-            <!-- /.login-card-body -->
-        </div>
+<div class="login-box">
+    <div class="login-logo">
+        <a href="{{ route('password.request') }}"><b>Admin</b>LTE</a>
     </div>
-@endsection
+    <!-- /.login-logo -->
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">You are only one step a way from your new password, reset your password now.</p>
+
+            <form method="POST" action="{{ route('password.update') }}">
+                @csrf
+
+                <input type="hidden" name="token" value="{{ $token }}">
+
+                <div class="input-group mb-3">
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" autocomplete="email"
+                           placeholder="Email" autofocus>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="input-group mb-3">
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password" placeholder="Password">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="input-group mb-3">
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password" placeholder="Retype password">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+
+            <p class="mt-3 mb-1">
+                <a href="{{ route('login') }}">Login</a>
+            </p>
+        </div>
+        <!-- /.login-card-body -->
+    </div>
+</div>
+
+
+<!-- jQuery -->
+<script src="{{ asset('../vendor/almasaeed2010/adminlte/plugins/jquery/jquery.min.js') }}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset('../vendor/almasaeed2010/adminlte/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('../vendor/almasaeed2010/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- overlayScrollbars -->
+<script src="{{ asset('../vendor/almasaeed2010/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('../vendor/almasaeed2010/adminlte/dist/js/adminlte.min.js') }}"></script>
+
+</body>
+</html>

@@ -1,62 +1,95 @@
-@extends('layouts.master')
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('title')
-    Forgot Password
-@endsection
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('body_class')
-    hold-transition login-page
-@endsection
+    <title>Forgot Password</title>
 
-@section('content')
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="{{ route('password.request') }}"><b>Admin</b>LTE</a>
-        </div>
-        <!-- /.login-logo -->
-        <div class="card">
-            <div class="card-body login-card-body">
-                <p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('../vendor/almasaeed2010/adminlte/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="{{ asset('../vendor/almasaeed2010/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{{ asset('../vendor/almasaeed2010/adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('../vendor/almasaeed2010/adminlte/dist/css/adminlte.min.css') }}">
+</head>
+<body class="hold-transition login-page">
 
-                @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                @endif
+<div class="login-box">
+    <div class="login-logo">
+        <a href="{{ route('password.request') }}"><b>Admin</b>LTE</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>
 
-                <form method="POST" action="{{ route('password.email') }}">
-                    @csrf
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
 
-                    <div class="input-group mb-3">
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" placeholder="Email" autofocus>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
+            <form method="POST" action="{{ route('password.email') }}">
+                @csrf
+
+                <div class="input-group mb-3">
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" placeholder="Email" autofocus>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
                         </div>
+                    </div>
 
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                        @enderror
+                    @enderror
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary btn-block">Request new password</button>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-block">Request new password</button>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                </form>
+                    <!-- /.col -->
+                </div>
+            </form>
 
-                <p class="mt-3 mb-1">
-                    <a href="{{ route('login') }}">Login</a>
-                </p>
-                <p class="mb-0">
-                    <a href="{{ route('login') }}" class="text-center">I already have an account</a>
-                </p>
-            </div>
-            <!-- /.login-card-body -->
+            <p class="mt-3 mb-1">
+                <a href="{{ route('login') }}">Login</a>
+            </p>
+            <p class="mb-0">
+                <a href="{{ route('register') }}" class="text-center">Create a new account</a>
+            </p>
         </div>
+        <!-- /.login-card-body -->
     </div>
-@endsection
+</div>
+
+
+<!-- jQuery -->
+<script src="{{ asset('../vendor/almasaeed2010/adminlte/plugins/jquery/jquery.min.js') }}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset('../vendor/almasaeed2010/adminlte/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('../vendor/almasaeed2010/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- overlayScrollbars -->
+<script src="{{ asset('../vendor/almasaeed2010/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('../vendor/almasaeed2010/adminlte/dist/js/adminlte.min.js') }}"></script>
+
+</body>
+</html>
