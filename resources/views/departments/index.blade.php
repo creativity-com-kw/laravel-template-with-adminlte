@@ -99,9 +99,11 @@
                                 </div>
                             </div>
                             <!-- /.card-body -->
-                            <div class="card-footer clearfix">
-                                {{ $departments->links() }}
-                            </div>
+                            @if( $departments->hasPages() )
+                                <div class="card-footer clearfix">
+                                    {{ $departments->links() }}
+                                </div>
+                            @endif
                         </div>
                         <!-- /.card -->
                     </div>
