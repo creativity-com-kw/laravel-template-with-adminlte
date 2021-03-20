@@ -18,3 +18,7 @@ yarn-error.log
 
 # VSCode
 .vscode
+
+# AdminLTE
+/resources/vendor/AdminLTE/node_modules
+/resources/vendor/AdminLTE/plugins
