@@ -20,5 +20,6 @@ yarn-error.log
 .vscode
 
 # AdminLTE
-/resources/vendor/AdminLTE/node_modules
-/resources/vendor/AdminLTE/plugins
+/resources/themes/AdminLTE/node_modules
+/resources/themes/AdminLTE/plugins
+
