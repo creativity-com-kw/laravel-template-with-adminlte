@@ -11,10 +11,6 @@
 |
 */
 
-Route::redirect('/', 'login');
-
-Auth::routes(['verify' => true]);
-
-Route::get('/home', 'HomeController@index')->name('home')->middleware(['verified', 'password.confirm']);
-
-Route::resource('departments', 'DepartmentController');
+Route::get('/', function () {
+    return 'Web: Hello World!';
+});

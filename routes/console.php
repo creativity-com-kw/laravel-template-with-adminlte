@@ -16,3 +16,14 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+Artisan::command('app:prepare', function () {
+    exec('(cd public/themes/AdminLTE && npm i)');
+    exec('php artisan migrate:fresh --seed');
+    exec('php artisan config:clear');
+    exec('php artisan permission:cache-reset');
+    exec('php artisan key:generate');
+    exec('php artisan storage:link');
+    exec('php artisan passport:install');
+    exec('php artisan passport:keys');
+})->describe('Prepare the app to run');

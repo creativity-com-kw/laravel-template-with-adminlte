@@ -11,6 +11,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 10)->create();
+        factory(App\User::class)->states('super-admin')->create();
+        factory(App\User::class)->states('admin')->create();
+        factory(App\User::class)->states('coach')->create();
+        factory(App\User::class)->states('member')->create();
+        factory(App\User::class)->states('guest')->create();
     }
 }

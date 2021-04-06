@@ -14,12 +14,12 @@ yarn-error.log
 **/.DS_Store
 
 # PhpStorm
-.idea
+/.idea
 
 # VSCode
-.vscode
+/.vscode
 
 # AdminLTE
-/resources/themes/AdminLTE/node_modules
-/resources/themes/AdminLTE/plugins
+/public/themes/AdminLTE/node_modules
+/public/themes/AdminLTE/plugins
 

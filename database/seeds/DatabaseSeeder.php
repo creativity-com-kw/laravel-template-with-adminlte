@@ -12,9 +12,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            SettingsTableSeeder::class,
+            MasterCmsTableSeeder::class,
             UsersTableSeeder::class,
-            DepartmentTableSeeder::class,
-            EmployeeTableSeeder::class
+            RolesAndPermissionsTableSeeder::class,
+            CoachApplicationTableSeeder::class,
+            PackagesTableSeeder::class,
+            CouponTableSeeder::class,
+            ClassTableSeeder::class,
+            EventTableSeeder::class,
+            PaymentModeTableSeeder::class
         ]);
     }
 }
