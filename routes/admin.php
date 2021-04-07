@@ -153,3 +153,20 @@ Route::middleware(['auth'])->group(function () {
         return 'Ok';
     });
 });
+
+// DB Notification
+Route::middleware(['auth'])->group(function () {
+    Route::get('/notification/db', function () {
+        auth()->user()->notify(new \App\Notifications\SimpleDBNotification());
+
+        return 'Ok';
+    });
+
+    Route::get('/notification/db/list', function () {
+        return auth()->user()->notifications;
+    });
+
+    Route::get('/notification/db/unread', function () {
+        return auth()->user()->unreadNotifications;
+    });
+});
