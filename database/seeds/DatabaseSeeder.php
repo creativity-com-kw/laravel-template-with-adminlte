@@ -16,11 +16,9 @@ class DatabaseSeeder extends Seeder
             MasterCmsTableSeeder::class,
             UsersTableSeeder::class,
             RolesAndPermissionsTableSeeder::class,
-            CoachApplicationTableSeeder::class,
             PackagesTableSeeder::class,
             CouponTableSeeder::class,
             ClassTableSeeder::class,
-            EventTableSeeder::class,
             PaymentModeTableSeeder::class
         ]);
     }
