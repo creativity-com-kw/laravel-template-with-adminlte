@@ -108,7 +108,7 @@ class AdminController extends Controller
                 $nestedData['name'] = $item->full_name;
                 $nestedData['email'] = $item->email;
                 $nestedData['mobile'] = $item->mobile;
-                if(!empty($item->getRoleNames())) {
+                if (!empty($item->getRoleNames())) {
                     $nestedData['roles'] = '';
                     foreach ($item->getRoleNames() as $role) {
                         $nestedData['roles'] = $nestedData['roles'] . " <span class='badge badge-info'>{$role}</span> ";
@@ -190,7 +190,7 @@ class AdminController extends Controller
 
         // update
         $user = new User();
-        $user->type = 3;
+        $user->type = 1;
         if ($request->hasFile('avatar')) {
             $user->avatar = $request->file('avatar')->store('avatars');
             Image::make('storage/' . $user->avatar)->resize(1000, 1000)->save('storage/' . $user->avatar);

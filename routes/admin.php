@@ -136,3 +136,20 @@ Route::middleware(['auth'])->prefix('m3')->name('m3.')->group(function () {
 
     Route::resource('classes.schedule', 'M3\ScheduleController')->only(['index', 'store', 'edit', 'update', 'destroy']);
 });
+
+// Mail
+Route::middleware(['auth'])->group(function () {
+    Route::get('/mail/render', function () {
+        return (new \App\Mail\Welcome(auth()->user()))->render();
+    });
+
+    Route::get('/mail/mailable', function () {
+        return new App\Mail\Welcome(auth()->user());
+    });
+
+    Route::get('/mail/send', function () {
+        Mail::to(auth()->user())->send(new \App\Mail\Welcome(auth()->user()));
+
+        return 'Ok';
+    });
+});
