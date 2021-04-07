@@ -44,15 +44,18 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function getFullNameAttribute() {
+    public function getFullNameAttribute()
+    {
         return $this->attributes['full_name'] = $this->middle_name ? "{$this->first_name} {$this->middle_name} {$this->last_name}" : "{$this->first_name} {$this->last_name}";
     }
 
-    public function getAvatarURLAttribute() {
+    public function getAvatarURLAttribute()
+    {
         return $this->attributes['avatar_url'] = $this->avatar ? Storage::url($this->avatar) : null;
     }
 
-    public function getDispPositionAttribute() {
+    public function getDispPositionAttribute()
+    {
         if ($this->coach_type == 1) {
             return $this->attributes['disp_position'] = 'Full-Time';
         } else if ($this->coach_type == 2) {
@@ -65,9 +68,17 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * For OneSignal Notification Channel
+     */
+    public function routeNotificationForOneSignal()
+    {
+        return ['include_external_user_ids' => [strval($this->id)]];
+    }
+
+    /**
      * Send the password reset notification.
      *
-     * @param  string  $token
+     * @param string $token
      * @return void
      */
     public function sendPasswordResetNotification($token)

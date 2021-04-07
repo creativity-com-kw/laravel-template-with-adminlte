@@ -170,3 +170,12 @@ Route::middleware(['auth'])->group(function () {
         return auth()->user()->unreadNotifications;
     });
 });
+
+// OneSignal Notification
+Route::middleware(['auth'])->group(function () {
+    Route::get('/notification/onesignal', function () {
+        auth()->user()->notify(new \App\Notifications\SimpleOneSignalNotification());
+
+        return 'Ok';
+    });
+});
