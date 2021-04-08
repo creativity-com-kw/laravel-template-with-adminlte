@@ -35,4 +35,10 @@ return [
         'rest_api_key' => env('ONESIGNAL_REST_API_KEY')
     ],
 
+    'futureclub' => [
+        'username' => env('FUTURECLUB_USERNAME'),
+        'password' => env('FUTURECLUB_PASSWORD'),
+        'sender_id' => env('FUTURECLUB_SENDER_ID'),
+    ],
+
 ];

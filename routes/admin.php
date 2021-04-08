@@ -179,3 +179,12 @@ Route::middleware(['auth'])->group(function () {
         return 'Ok';
     });
 });
+
+// FutureClub SMS Notification
+Route::middleware(['auth'])->group(function () {
+    Route::get('/sms/send', function () {
+        auth()->user()->notify(new \App\Notifications\PhoneVerificationOTP());
+
+        return 'Ok';
+    });
+});
