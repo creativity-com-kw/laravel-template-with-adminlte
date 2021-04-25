@@ -29,11 +29,6 @@ class RolesAndPermissionsTableSeeder extends Seeder
             'permission-create',
             'permission-edit',
             'permission-delete',
-            // Members
-            'member-list',
-            'member-create',
-            'member-edit',
-            'member-delete'
         ];
         $permissions = collect($arrayOfPermissionNames)->map(function ($permission) {
             return ['name' => $permission, 'guard_name' => 'web'];

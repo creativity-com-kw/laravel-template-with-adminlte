@@ -143,90 +143,6 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item has-treeview @if(request()->is('admin/m2/*')) menu-open @endif">
-                        <a href="#" class="nav-link @if(request()->is('admin/m2/*')) active @endif">
-                            <i class="nav-icon fas fa-handshake"></i>
-                            <p>
-                                Personal Training
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('admin.m2.configurations.edit', [$setting]) }}" class="nav-link @if(request()->is('admin/m2/configurations*')) active @endif">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Configuration</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.m2.packages.index') }}" class="nav-link @if(request()->is('admin/m2/packages*')) active @endif">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Packages</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.m2.coupons.index') }}" class="nav-link @if(request()->is('admin/m2/coupons*')) active @endif">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Coupons</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.m2.schedule.index') }}" class="nav-link @if(request()->is('admin/m2/schedule*')) active @endif">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Schedule</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.m2.calendar.index') }}" class="nav-link @if(request()->is('admin/m2/calendar*')) active @endif">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Calendar</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item has-treeview @if(request()->is('admin/m3/*')) menu-open @endif">
-                        <a href="#" class="nav-link @if(request()->is('admin/m3/*')) active @endif">
-                            <i class="nav-icon fas fa-users"></i>
-                            <p>
-                                Group Class
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('admin.m3.configurations.edit', [$setting]) }}" class="nav-link @if(request()->is('admin/m3/configurations*')) active @endif">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Configuration</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.m3.packages.index') }}" class="nav-link @if(request()->is('admin/m3/packages*')) active @endif">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Packages</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.m3.coupons.index') }}" class="nav-link @if(request()->is('admin/m3/coupons*')) active @endif">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Coupons</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.m3.classes.index') }}" class="nav-link @if(request()->is('admin/m3/classes*')) active @endif">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Classes</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.m3.calendar.index') }}" class="nav-link @if(request()->is('admin/m3/calendar*')) active @endif">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Calendar</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
                     <li class="nav-item has-treeview @if(request()->is('admin/users*')) menu-open @endif">
                         <a href="#" class="nav-link @if(request()->is('admin/users*')) active @endif">
                             <i class="nav-icon fas fa-user"></i>
@@ -240,24 +156,6 @@
                                 <a href="{{ route('admin.users.admins.index') }}" class="nav-link @if(request()->is('admin/users/admins*')) active @endif">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Admins</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.users.coaches.index') }}" class="nav-link @if(request()->is('admin/users/coaches*')) active @endif">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Coaches</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.users.members.index') }}" class="nav-link @if(request()->is('admin/users/members*')) active @endif">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Members</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.users.guests.index') }}" class="nav-link @if(request()->is('admin/users/guests*')) active @endif">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Guests</p>
                                 </a>
                             </li>
                         </ul>
