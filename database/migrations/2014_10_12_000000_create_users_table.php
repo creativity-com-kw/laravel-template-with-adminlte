@@ -27,7 +27,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('coach_application_id')->nullable();
-            $table->tinyInteger('role')->nullable()->comment('1 = admin, 2 = coach, 3 = member, 4 = guest');
             $table->tinyInteger('status')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamp('email_verified_at')->nullable();
