@@ -27,3 +27,8 @@ Artisan::command('app:prepare', function () {
     exec('php artisan passport:install');
     exec('php artisan passport:keys');
 })->describe('Prepare the app to run');
+
+Artisan::command('db:fresh', function () {
+    exec('php artisan migrate:fresh --seed');
+    exec('php artisan passport:install');
+})->describe('Make fresh database');
