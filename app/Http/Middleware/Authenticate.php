@@ -10,15 +10,15 @@ class Authenticate extends Middleware
     /**
      * Handle an unauthenticated user.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  array  $guards
+     * @param \Illuminate\Http\Request $request
+     * @param array $guards
      * @return void
      *
      * @throws \Illuminate\Auth\AuthenticationException
      */
     protected function unauthenticated($request, array $guards)
     {
-        if ($request->route()->getPrefix() == 'api') {
+        if (str_contains($request->route()->getPrefix(), 'api')) {
             throw new AuthenticationException(
                 'Unauthenticated.', $guards
             );
@@ -38,7 +38,7 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (!$request->expectsJson()) {
-            if ($request->route()->getPrefix() == 'admin') {
+            if (str_contains($request->route()->getPrefix(), 'admin')) {
                 return route('admin.login');
             }
 
