@@ -444,6 +444,7 @@ const Plugins = [
     from: 'node_modules/uplot/dist/',
     to: 'plugins/uplot'
   },
+  // custom plugins starts here
   // highcharts
   {
     from: 'node_modules/highcharts/',
@@ -463,6 +464,21 @@ const Plugins = [
   {
     from: 'node_modules/jquery-easy-loading/dist',
     to: 'plugins/jquery-easy-loadings'
+  },
+  // typehead.js
+  {
+    from: 'node_modules/typeahead.js/dist',
+    to: 'plugins/typeahead.js'
+  },
+  // print-js
+  {
+    from: 'node_modules/print-js/dist',
+    to: 'plugins/print-js'
+  },
+  // clipboard
+  {
+    from: 'node_modules/clipboard/dist',
+    to: 'plugins/clipboard'
   }
 ]
 
