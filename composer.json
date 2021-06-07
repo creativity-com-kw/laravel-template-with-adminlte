@@ -17,6 +17,7 @@
         "laravel/passport": "^9.0",
         "laravel/slack-notification-channel": "^2.3",
         "laravel/tinker": "^2.5",
+        "simplesoftwareio/simple-qrcode": "~4",
         "spatie/laravel-backup": "^6.11",
         "spatie/laravel-cors": "^1.6",
         "spatie/laravel-permission": "^4.0",
