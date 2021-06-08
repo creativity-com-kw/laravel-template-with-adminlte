@@ -20,6 +20,7 @@
         "simplesoftwareio/simple-qrcode": "~4",
         "spatie/laravel-backup": "^6.11",
         "spatie/laravel-cors": "^1.6",
+        "spatie/laravel-enum": "^1.6",
         "spatie/laravel-permission": "^4.0",
         "wildbit/swiftmailer-postmark": "^3.3"
     },

@@ -60,7 +60,8 @@
                                     <div class="row justify-content-center">
                                         <div class="col-md-6">
                                             <div class="d-flex flex-column justify-content-center align-items-center">
-                                                <img src="{{ $user->avatar_url }}" onerror="this.onerror=null; this.src='{{ asset('themes/AdminLTE/dist/img/default-1000x1000.png') }}';" id="profile_img" class="rounded mb-2" width="300" height="auto"  alt=""/>
+                                                <img src="{{ $user->avatar_url }}" onerror="this.onerror=null; this.src='{{ asset('themes/AdminLTE/dist/img/default-1000x1000.png') }}';" id="profile_img"
+                                                     class="rounded mb-2" width="300" height="auto" alt=""/>
 
                                                 <div class="w-100 d-flex" style="justify-content: space-evenly">
                                                     <a class="btn btn-sm btn-primary" onclick="$('.js-image-upload').click();">
@@ -74,7 +75,8 @@
                                                     @endunless
                                                 </div>
 
-                                                <input type="file" name="avatar" class="js-image-upload form-control d-none" accept='.jpg, .jpeg, .png' onchange="document.getElementById('profile_img').src = window.URL.createObjectURL(this.files[0]);"/>
+                                                <input type="file" name="avatar" class="js-image-upload form-control d-none" accept='.jpg, .jpeg, .png'
+                                                       onchange="document.getElementById('profile_img').src = window.URL.createObjectURL(this.files[0]);"/>
 
                                                 @error('avatar')
                                                 <div class="invalid-feedback">
@@ -229,8 +231,8 @@
                                                 <label>Status</label>
                                                 <select name="status" class="form-control @error('status') is-invalid @enderror">
                                                     <option value="">Select Status</option>
-                                                    <option value="1" {{ $user->status == '1' ? 'selected' : null }}>Active</option>
-                                                    <option value="0" {{ $user->status == '0' ? 'selected' : null }}>Inactive</option>
+                                                    <option value="1" {{ $user->status->isEqual('active') ? 'selected' : null }}>Active</option>
+                                                    <option value="0" {{ $user->status->isEqual('inactive') ? 'selected' : null }}>Inactive</option>
                                                 </select>
 
                                                 @error('status')

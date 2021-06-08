@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Admin;
 
+use App\Enums\StatusEnum;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
@@ -114,7 +115,7 @@ class AdminController extends Controller
                         $nestedData['roles'] = $nestedData['roles'] . " <span class='badge badge-info'>{$role}</span> ";
                     }
                 }
-                $nestedData['status'] = $item->status == 1 ? '<span class="badge badge-primary">Active</span>' : '<span class="badge badge-danger">Inactive</span>';
+                $nestedData['status'] = $item->status->isEqual(StatusEnum::ACTIVE()) ? '<span class="badge badge-primary">Active</span>' : '<span class="badge badge-danger">Inactive</span>';
                 $nestedData['options'] = (string)View::make('admin.user.admin.options-template', ['user' => $item])->render();
 
                 $data[$key] = $nestedData;
