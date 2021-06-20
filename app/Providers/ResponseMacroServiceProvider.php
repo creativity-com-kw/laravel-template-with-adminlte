@@ -24,17 +24,18 @@ class ResponseMacroServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Response::macro('success', function ($data, $status = 200) {
+        Response::macro('success', function ($message, $data = null, $status = 200) {
             return Response::json([
-                'errors'  => false,
+                'status' => 'ok',
+                'message' => $message,
                 'data' => $data,
             ], $status);
         });
 
-        Response::macro('error', function ($message, $status = 400) {
+        Response::macro('error', function ($errors, $status = 400) {
             return Response::json([
-                'errors'  => true,
-                'message' => $message,
+                'status' => 'error',
+                'errors' => $errors
             ], $status);
         });
     }
