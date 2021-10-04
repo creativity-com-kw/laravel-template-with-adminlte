@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Enums\StatusEnum;
 use App\Notifications\Admin\ResetPasswordNotification;
 use App\Notifications\Admin\VerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -11,19 +10,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Passport\HasApiTokens;
-use Spatie\Enum\Laravel\HasEnums;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable, HasApiTokens, HasRoles;
     use SoftDeletes;
-    use HasEnums;
-
-    protected $enums = [
-        'status' => StatusEnum::class,
-    ];
-
+    
     /**
      * The attributes that are mass assignable.
      *

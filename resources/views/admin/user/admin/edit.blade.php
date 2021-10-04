@@ -231,8 +231,8 @@
                                                 <label>Status</label>
                                                 <select name="status" class="form-control @error('status') is-invalid @enderror">
                                                     <option value="">Select Status</option>
-                                                    <option value="1" {{ $user->status->isEqual('active') ? 'selected' : null }}>Active</option>
-                                                    <option value="0" {{ $user->status->isEqual('inactive') ? 'selected' : null }}>Inactive</option>
+                                                    <option value="1" {{ $user->status == '1' ? 'selected' : null }}>Active</option>
+                                                    <option value="0" {{ $user->status == '0' ? 'selected' : null }}>Inactive</option>
                                                 </select>
 
                                                 @error('status')
