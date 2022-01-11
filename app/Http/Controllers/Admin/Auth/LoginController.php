@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -51,32 +50,9 @@ class LoginController extends Controller
     }
 
     /**
-     * Get the needed authorization credentials from the request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
-    protected function credentials(Request $request)
-    {
-        return ['type' => 1, 'email' => $request->{$this->username()}, 'password' => $request->password, 'status' => 1];
-    }
-
-    /**
-     * The user has been authenticated.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param mixed $user
-     * @return mixed
-     */
-    protected function authenticated(Request $request, $user)
-    {
-        Log::info('User login successful.', ['id' => $user->id, 'name' => $user->name]);
-    }
-
-    /**
      * Log the user out of the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function logout(Request $request)
@@ -99,5 +75,38 @@ class LoginController extends Controller
     protected function loggedOut(Request $request)
     {
         Log::info('User logout successful.');
+    }
+
+    /**
+     * Get the path the user should be redirected to when they are authenticated.
+     *
+     * @return string|null
+     */
+    public function redirectTo()
+    {
+        return route('admin.home');
+    }
+
+    /**
+     * Get the needed authorization credentials from the request.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return array
+     */
+    protected function credentials(Request $request)
+    {
+        return ['type' => 1, 'email' => $request->{$this->username()}, 'password' => $request->password, 'status' => 1];
+    }
+
+    /**
+     * The user has been authenticated.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $user
+     * @return mixed
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        Log::info('User login successful.', ['id' => $user->id, 'name' => $user->name]);
     }
 }

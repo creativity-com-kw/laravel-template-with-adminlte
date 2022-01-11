@@ -13,6 +13,7 @@
 
 Route::redirect('/', 'admin/login');
 
+// Language
 Route::get('lang/{lang}', 'LanguageController@update')->name('lang.update');
 
 // Auth
