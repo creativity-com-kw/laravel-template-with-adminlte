@@ -13,6 +13,8 @@
 
 Route::redirect('/', 'admin/login');
 
+Route::get('lang/{lang}', 'LanguageController@update')->name('lang.update');
+
 // Auth
 Route::match(['get', 'head'], 'login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');

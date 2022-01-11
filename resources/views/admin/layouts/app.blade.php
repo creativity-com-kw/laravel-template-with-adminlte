@@ -28,6 +28,18 @@
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
+            <!-- Language Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">{{ Config::get('languages')[App::getLocale()]['label'] }}</a>
+                <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                    @foreach (Config::get('languages') as $lang => $language)
+                        @if ($lang != App::getLocale())
+                            <a class="dropdown-item" href="{{ route('admin.lang.update', $lang) }}">{{ $language['label'] }}</a>
+                        @endif
+                    @endforeach
+                </ul>
+            </li>
+
             <!-- Notifications Dropdown Menu -->
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
@@ -55,10 +67,10 @@
                     <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <!-- <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                     <i class="fas fa-th-large"></i>
-                 </a> -->
+            <li class="nav-item d-none">
+                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                    <i class="fas fa-th-large"></i>
+                </a>
             </li>
         </ul>
     </nav>
