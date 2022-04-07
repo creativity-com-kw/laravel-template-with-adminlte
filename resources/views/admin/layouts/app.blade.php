@@ -10,7 +10,7 @@
     <title>@yield('title')</title>
 
     @section('header')
-        @include('admin.layouts.header')
+        @include('admin.layouts.styles')
     @show
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
@@ -274,7 +274,7 @@
 </div>
 
 @section('footer')
-    @include('admin.layouts.footer')
+    @include('admin.layouts.scripts')
 @show
 </body>
 </html>

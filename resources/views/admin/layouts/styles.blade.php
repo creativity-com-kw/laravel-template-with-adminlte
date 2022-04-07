@@ -26,4 +26,6 @@
 <link rel="stylesheet" href="{{ asset('themes/AdminLTE/plugins/toastr/toastr.min.css') }}">
 <!-- Theme style -->
 <link rel="stylesheet" href="{{ asset('themes/AdminLTE/dist/css/adminlte.min.css') }}">
+<!-- Global style -->
+<link rel="stylesheet" href="{{ asset('css/global.css') }}">
 
