@@ -30,8 +30,10 @@
 <script src="{{ asset('themes/AdminLTE/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
 <!-- Toastr -->
 <script src="{{ asset('themes/AdminLTE/plugins/toastr/toastr.min.js') }}"></script>
-{{-- jquery-easy-loading --}}
+<!-- jquery-easy-loading -->
 <script src="{{ asset('themes/AdminLTE/plugins/jquery-easy-loadings/jquery.loading.min.js') }}"></script>
+<!-- File Manager -->
+<script src="{{ asset('js/lfm.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('themes/AdminLTE/dist/js/adminlte.min.js') }}"></script>
 
