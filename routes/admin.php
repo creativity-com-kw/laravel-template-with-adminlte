@@ -11,6 +11,8 @@
 |
 */
 
+use Spatie\Activitylog\Models\Activity;
+
 Route::redirect('/', 'admin/login');
 
 // Language
@@ -137,5 +139,29 @@ Route::middleware(['auth'])->group(function () {
         auth()->user()->notify(new \App\Notifications\PhoneVerificationOTP());
 
         return 'Ok';
+    });
+});
+
+// Activity Log
+Route::middleware(['auth'])->group(function () {
+    Route::get('/activity/log', function () {
+        activity()
+            ->inLog('default')
+            ->on(\App\Classes::find(2))
+            ->by(\App\User::find(1))
+            ->withProperties([
+                'key' => 'value'
+            ])
+            ->tap(function (Activity $activity) {
+                $activity->description_ar = 'description ar';
+            })
+            ->log('Look mum, I logged something');
+
+//        $lastActivity = Activity::all()->last();
+//        $lastActivity->subject
+//        $lastActivity->causer
+//        $lastActivity->description;
+
+        print_r(Activity::where('log_name', 'default')->where('properties->key', 'value')->get()->toJson(JSON_PRETTY_PRINT));
     });
 });
