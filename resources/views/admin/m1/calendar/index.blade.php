@@ -4,7 +4,7 @@
     Calendar
 @endsection
 
-@section('header')
+@section('styles')
     @parent
 
     <style type="text/css">
@@ -56,7 +56,7 @@
     <!-- /.content-wrapper -->
 @endsection
 
-@section('footer')
+@section('scripts')
     @parent
 
     <script src="{{ asset('themes/AdminLTE/plugins/fullcalendar-scheduler/main.min.js') }}"></script>

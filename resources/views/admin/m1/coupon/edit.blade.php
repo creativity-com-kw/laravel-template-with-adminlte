@@ -4,7 +4,7 @@
     Edit
 @endsection
 
-@section('header')
+@section('styles')
     @parent
 
 @endsection
@@ -186,7 +186,7 @@
     <!-- /.content-wrapper -->
 @endsection
 
-@section('footer')
+@section('scripts')
     @parent
 
     <script type="text/javascript">

@@ -4,7 +4,7 @@
     Create
 @endsection
 
-@section('header')
+@section('styles')
     @parent
 
 @endsection
@@ -55,7 +55,8 @@
                                     <div class="row justify-content-center">
                                         <div class="col-md-2">
                                             <div class="d-flex flex-column justify-content-center align-items-center">
-                                                <img src="" onerror="this.onerror=null; this.src='{{ asset('themes/AdminLTE/dist/img/default-1000x1000.png') }}';" id="profile_img" class="rounded mb-2" width="300" height="auto" alt=""/>
+                                                <img src="" onerror="this.onerror=null; this.src='{{ asset('themes/AdminLTE/dist/img/default-1000x1000.png') }}';" id="profile_img" class="rounded mb-2" width="300"
+                                                     height="auto" alt=""/>
 
                                                 <div class="w-100 d-flex" style="justify-content: space-evenly">
                                                     <a class="btn btn-sm btn-primary" onclick="$('.js-image-upload').click();">
@@ -247,7 +248,7 @@
     <!-- /.content-wrapper -->
 @endsection
 
-@section('footer')
+@section('scripts')
     @parent
 
     <script type="text/javascript">

@@ -4,7 +4,7 @@
     Home
 @endsection
 
-@section('header')
+@section('styles')
     @parent
 
     <style type="text/css">
@@ -213,7 +213,7 @@
     <!-- /.content-wrapper -->
 @endsection
 
-@section('footer')
+@section('scripts')
     @parent
 
     <!-- highcharts Js -->

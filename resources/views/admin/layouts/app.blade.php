@@ -9,7 +9,7 @@
 
     <title>@yield('title')</title>
 
-    @section('header')
+    @section('styles')
         @include('admin.layouts.styles')
     @show
 </head>
@@ -273,7 +273,7 @@
     </footer>
 </div>
 
-@section('footer')
+@section('scripts')
     @include('admin.layouts.scripts')
 @show
 </body>

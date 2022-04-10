@@ -4,7 +4,7 @@
     Schedule
 @endsection
 
-@section('header')
+@section('styles')
     @parent
 
 @endsection
@@ -485,7 +485,7 @@
     <!-- /.modal -->
 @endsection
 
-@section('footer')
+@section('scripts')
     @parent
 
     @stack('scripts')

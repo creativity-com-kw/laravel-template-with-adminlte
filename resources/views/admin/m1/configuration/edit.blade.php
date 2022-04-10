@@ -4,7 +4,7 @@
     Configurations
 @endsection
 
-@section('header')
+@section('styles')
     @parent
 
 @endsection
@@ -114,7 +114,7 @@
     <!-- /.content-wrapper -->
 @endsection
 
-@section('footer')
+@section('scripts')
     @parent
 
 @endsection
