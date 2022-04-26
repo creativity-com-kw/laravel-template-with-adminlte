@@ -16,7 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable, HasApiTokens, HasRoles;
     use SoftDeletes;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -66,6 +66,26 @@ class User extends Authenticatable implements MustVerifyEmail
         } else {
             return $this->attributes['disp_position'] = null;
         }
+    }
+
+    public function setFirstNameAttribute($value)
+    {
+        $this->attributes['first_name'] = ucwords(strtolower($value));
+    }
+
+    public function setMiddleNameAttribute($value)
+    {
+        $this->attributes['middle_name'] = ucwords(strtolower($value));
+    }
+
+    public function setLastNameAttribute($value)
+    {
+        $this->attributes['last_name'] = ucwords(strtolower($value));
+    }
+
+    public function setEmailAttribute($value)
+    {
+        $this->attributes['email'] = ucwords(strtolower($value));
     }
 
     /**
