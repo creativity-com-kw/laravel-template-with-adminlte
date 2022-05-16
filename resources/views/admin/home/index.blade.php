@@ -206,6 +206,11 @@
                 </div>
                 <!-- /.row -->
 
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" id="lfm" class="btn btn-sm bg-gradient-primary mb-2">Choose File</button>
+                    </div>
+                </div>
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content -->
@@ -223,6 +228,14 @@
 
     <script>
         $(document).ready(function () {
+            var route_prefix = "{{ url('filemanager') }}";
+            lfm('lfm', {
+                prefix: route_prefix,
+                type: 'image', // image or file
+            }, function (items) {
+                console.log(items);
+            });
+
             Highcharts.setOptions({
                 colors: ['#14A2B8', '#27A844', '#FFC106', '#DC3544']
             });
@@ -320,7 +333,7 @@
                     }]
                 }]
             };
-            Highcharts.chart('yearlySalesContainer',yearlySalesOptions);
+            Highcharts.chart('yearlySalesContainer', yearlySalesOptions);
 
             var yearlyBookingsOptions = {
                 chart: {
